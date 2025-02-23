@@ -54,7 +54,7 @@ class FirewallService {
     List<String> addresses = rule.addresses.map((elem) => "$elem:255.255.255.255").toList();
     String joinedAddresses = addresses.join(",");
 
-    int? result = await platform.invokeMethod<int>('add_rule', {"rule_name": rule.name, "addresses": addresses});
+    int? result = await platform.invokeMethod<int>('add_rule', {"rule_name": rule.name, "addresses": joinedAddresses});
 
     return Future<bool>.value(result == 1 ? true : false);
   }
@@ -68,7 +68,7 @@ class FirewallService {
   }
 
   Future<bool> toggleRuleInFirewall(FirewallRule rule, bool shouldBeEnabled, Function(bool)? callback) async {
-    int? result = await platform.invokeMethod<int>(shouldBeEnabled ? 'enable_rule' : 'disable_rule', {"rule_name": rule.name});
+    await platform.invokeMethod<int>(shouldBeEnabled ? 'enable_rule' : 'disable_rule', {"rule_name": rule.name});
 
     bool isEnabled = await _isRuleEnabledInFirewall(rule);
     bool isSuccess = isEnabled == shouldBeEnabled;
