@@ -1,11 +1,17 @@
 # Counter-Strike 2 Server Blocker
 
+![CS2ServerBlocker logo](https://raw.githubusercontent.com/Fyffe/cs2serverblocker/refs/heads/master/assets/images/logo.jpg)
+
 Helps you in blocking Valve's Counter-Strike 2 matchmaking servers.
 
 ## How it works
 
 At launch this app gets the Steam Datagram Relay config for Counter-Strike 2 and reads all the servers that Valve uses for their matchmaking, it then creates a firewall rule for each of the relays and allows you to toggle it On or Off.
 Because this tool makes changes to your firewall it requires admin privileges in order to work.
+
+[![App view](https://github.com/Fyffe/cs2serverblocker/blob/master/git_images/home_view_thumb.png)](https://github.com/Fyffe/cs2serverblocker/blob/master/git_images/home_view.png)
+
+[![Firewall rules](https://github.com/Fyffe/cs2serverblocker/blob/master/git_images/firewall_rules_thumb.png)](https://github.com/Fyffe/cs2serverblocker/blob/master/git_images/firewall_rules.png)
 
 ## Compatibility
 
